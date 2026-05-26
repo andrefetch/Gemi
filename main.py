@@ -2,6 +2,7 @@ import os
 import argparse
 from dotenv import load_dotenv
 from google import genai
+from google.genai import types
 
 load_dotenv()
 api_key = os.environ.get("GEMINI_API_KEY")
@@ -14,16 +15,21 @@ if api_key is None:
     raise RuntimeError("API Key is missing or not found.")
 
 '''
-Parser for running user argument into the command lkine
+Parser for running user argument into the command line
 '''
 
 parser = argparse.ArgumentParser(description="Chatbot_Application")
 parser.add_argument("user_prompt", type=str, help="User prompt")
+parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
 args = parser.parse_args()
+
+messages: list[types.Content] = [
+    types.Content(role="user", parts=[types.Part(text=args.user_prompt)])
+]
 
 response = client.models.generate_content(
     model='gemini-3.5-flash',
-    contents=args.user_prompt
+    contents=messages
 )
 
 if response.usage_metadata is None:
