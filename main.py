@@ -40,7 +40,7 @@ if response.usage_metadata is None:
 Function Definitions
 '''
 
-def main():
+def main() -> str:
     if args.verbose:
         print(f"User prompt: {args.user_prompt}\n")
         print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}\n")
