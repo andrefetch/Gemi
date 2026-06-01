@@ -25,10 +25,11 @@ args = parser.parse_args()
 
 messages: list[types.Content] = [
     types.Content(role="user", parts=[types.Part(text=args.user_prompt)])
+
 ]
 
 response = client.models.generate_content(
-    model='gemini-3.5-flash',
+    model='gemini-2.5-flash',
     contents=messages
 )
 
@@ -40,10 +41,12 @@ Function Definitions
 '''
 
 def main():
-    print(f"User prompt: {args.user_prompt}\n")
-    print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}\n")
-    print(f"Response tokens: {response.usage_metadata.candidates_token_count}\n")
-    print(f"Reponse: {response.text}")
+    if args.verbose:
+        print(f"User prompt: {args.user_prompt}\n")
+        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}\n")
+        print(f"Response tokens: {response.usage_metadata.candidates_token_count}\n")
+    else:
+        print(f"Response: {response.text}")
 
 
 if __name__ == "__main__":
