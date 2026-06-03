@@ -69,7 +69,7 @@ The TUI has a built in theme switcher that allows user to install themes such as
 
 Note: Gemi does not have a memory system and can't keep memory of past conversations.
 
-### Tech Stack! (Awesome part)
+### Technologies! (Awesome part)
 ```
 Google-Genai (As the model for the agent)
 Rich, Textual & UC-Micro-Py: TUI Libraries
