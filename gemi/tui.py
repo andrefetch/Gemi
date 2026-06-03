@@ -14,33 +14,14 @@ SPINNER_FRAMES = "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
 TYPE_INTERVAL = 0.012  # seconds between ticks
 TYPE_CHARS_PER_TICK = 2  # baseline characters revealed per tick
 
+WELCOME_TEXT = """\n  [bold]Gemi[/bold]\n\n  Your AI-powered coding assistant.\n  Ask me anything about your codebase.\n\n  Type a message below to get started.\n"""
+
 class GemiApp(App):
 
     TITLE = "Gemi"
     SUB_TITLE = "Agentic File Assistant"
 
-    CSS = """
-    #chat {
-        border: round $primary;
-        padding: 0 1;
-        margin: 0 1;
-    }
-    #chat Static {
-        margin-bottom: 1;
-        height: auto;
-    }
-    #thinking {
-        height: 1;
-        margin: 0 2;
-        text-style: bold;
-        color: $warning;
-        display: none;
-    }
-    Input {
-        dock: bottom;
-        margin: 0 1 1 1;
-    }
-    """
+    CSS_PATH = "tui.tcss"
 
     BINDINGS = [("ctrl+c", "quit", "Quit")]
 
@@ -63,7 +44,9 @@ class GemiApp(App):
         yield Footer()
 
     def on_mount(self) -> None:
+        self._add_message(WELCOME_TEXT).add_class("welcome")
         self.query_one(Input).focus()
+
 
     def _add_message(self, markup: str) -> Static:
         """Append a message widget to the chat and scroll to it."""

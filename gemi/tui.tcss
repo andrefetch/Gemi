@@ -1,0 +1,27 @@
+#chat {
+    border: round $primary;
+    padding: 0 1;
+    margin: 0 1;
+}
+#chat Static {
+    margin-bottom: 1;
+    height: auto;
+}
+#chat Static.welcome {
+    color: $text-muted;
+    text-align: center;
+    content-align: center middle;
+    width: 1fr;
+    margin: 2 0;
+}
+#thinking {
+    height: 1;
+    margin: 0 2;
+    text-style: bold;
+    color: $warning;
+    display: none;
+}
+Input {
+    dock: bottom;
+    margin: 0 1 1 1;
+}
