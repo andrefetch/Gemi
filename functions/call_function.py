@@ -21,11 +21,6 @@ def call_function(
 ) -> types.Content:
     
     function_name = function_call.name or ""
-    
-    if verbose:
-        print(f"Calling function: {function_name}({function_call.args})")
-    else:
-        print(f" - Calling function: {function_name}")
 
     args = dict(function_call.args) if function_call.args else {}
 
