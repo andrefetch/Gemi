@@ -45,8 +45,6 @@ GEMINI_API_KEY=your_key_here
 
 (Replace `your_key_here` with the key you copied from Google AI Studio.)
 
-That's it — you're ready to go! 🎉
-
 ## Using Gemi
 
 The easiest way to start is the chat interface:
@@ -55,7 +53,7 @@ The easiest way to start is the chat interface:
 ./gemi.sh
 ```
 
-Then just type what you'd like Gemi to do and press Enter. Press `Ctrl+C` whenever you want to quit.
+Then just type what you'd like Gemi to do and press Enter. Press `Cntrl+C` whenever you want to quit.
 
 Prefer a quick one-off command instead of the chat window? You can ask Gemi a single question straight from your terminal:
 
@@ -67,4 +65,4 @@ Add `--verbose` if you'd like to see exactly what Gemi is doing behind the scene
 
 ## Contributing
 
-Gemi is open source and contributions are very welcome. If you'd like to add a feature or fix something, feel free to open a Pull Request — thanks for helping out!
+Gemi is open source and contributions are very welcome. If you'd like to add a feature or fix something, feel free to open a Pull Request, thanks for helping out!
