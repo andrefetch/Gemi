@@ -44,6 +44,7 @@ class Agent:
             types.Content(role="user", parts=[types.Part(text=user_prompt)])
         )
 
+        total_tokens = 0
         for _ in range(self.max_iterations):
             response = self.client.models.generate_content(
                 model=self.model,
@@ -54,6 +55,9 @@ class Agent:
             if response.usage_metadata is None:
                 yield AgentEvent("error", "Prompt is empty, or there is an internal error.")
                 return
+
+            total_tokens += response.usage_metadata.total_token_count or 0
+            yield AgentEvent("usage", str(total_tokens))
 
             for candidate in response.candidates:
                 self.messages.append(candidate.content)

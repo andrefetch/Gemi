@@ -55,7 +55,12 @@ class GemiApp(App):
         log = self.query_one("#chat", RichLog)
         try:
             for ev in self.agent.send(prompt, verbose=True):
-                if ev.kind == "function_call":
+                if ev.kind == "usage":
+                    self.call_from_thread(
+                        log.write,
+                        f"[yellow]⠿ Gemi is thinking…[/] [dim]{int(ev.text):,} tokens[/]",
+                    )
+                elif ev.kind == "function_call":
                     self.call_from_thread(
                         log.write, f"[yellow]→ calling[/] [dim]{escape(ev.text)}"
                     )
@@ -72,7 +77,7 @@ class GemiApp(App):
                     self.call_from_thread(
                         log.write, f"[bold red]error[/] {escape(ev.text)}"
                     )
-        except Exception as exc:  
+        except Exception as exc:
             self.call_from_thread(log.write, f"[bold red]error[/] {escape(str(exc))}")
         finally:
             self.call_from_thread(self._reenable_input)
