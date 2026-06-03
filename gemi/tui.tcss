@@ -1,7 +1,26 @@
+Screen {
+    background: $surface;
+}
+
+Header {
+    background: $panel;
+    color: $accent;
+    text-style: bold;
+}
+
+Footer {
+    background: $panel;
+}
+
 #chat {
     border: round $primary;
+    border-title-color: $accent;
     padding: 0 1;
     margin: 0 1;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: $primary;
+    scrollbar-color-hover: $accent;
+    scrollbar-background: $surface;
 }
 #chat Static {
     margin-bottom: 1;
@@ -24,4 +43,13 @@
 Input {
     dock: bottom;
     margin: 0 1 1 1;
+    border: round $primary;
+    background: $boost;
+}
+Input:focus {
+    border: round $accent;
+}
+Input:disabled {
+    border: round $surface-lighten-2;
+    color: $text-muted;
 }
