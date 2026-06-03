@@ -1,4 +1,4 @@
-from functions.write_file import write_file
+from gemi.functions.write_file import write_file
 
 print(write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum"))
 print(write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet"))

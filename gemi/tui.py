@@ -4,7 +4,7 @@ from textual import work
 from textual.app import App, ComposeResult
 from textual.widgets import Footer, Header, Input, RichLog
 
-from agent import Agent
+from .agent import Agent
 
 MAX_RESULT_CHARS = 1000
 

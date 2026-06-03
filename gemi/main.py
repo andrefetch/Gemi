@@ -1,7 +1,7 @@
 import sys
 import argparse
 
-from agent import Agent
+from .agent import Agent
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Chatbot_Application")
