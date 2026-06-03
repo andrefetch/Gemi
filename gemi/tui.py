@@ -35,6 +35,7 @@ class GemiApp(App):
         self._type_index = 0
         self._type_timer = None
         self._type_widget = None
+        self._welcome = None
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -44,7 +45,8 @@ class GemiApp(App):
         yield Footer()
 
     def on_mount(self) -> None:
-        self._add_message(WELCOME_TEXT).add_class("welcome")
+        self._welcome = self._add_message(WELCOME_TEXT)
+        self._welcome.add_class("welcome")
         self.query_one(Input).focus()
 
 
@@ -60,6 +62,9 @@ class GemiApp(App):
         prompt = event.value.strip()
         if not prompt:
             return
+        if self._welcome is not None:
+            self._welcome.remove()
+            self._welcome = None
         self._add_message(f"[bold cyan]You[/]: {escape(prompt)}")
         event.input.value = ""
         event.input.disabled = True
