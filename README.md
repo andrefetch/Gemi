@@ -63,6 +63,19 @@ gemi "list the files in this project"
 
 Add `--verbose` if you'd like to see exactly what Gemi is doing behind the scenes.
 
+### Using Gemi & It's Functionality
+
+The TUI has a built in theme switcher that allows user to install themes such as: catppuccin. And also provides a keymapping system to see what every keybind does. 
+
+Note: Gemi does not have a memory system and can't keep memory of past conversations.
+
+### Tech Stack! (Awesome part)
+```
+Google-Genai (As the model for the agent)
+Rich, Textual & UC-Micro-Py: TUI Libraries
+Argparse: for parsing arguments to pass
+```
+
 ## Contributing
 
 Gemi is open source and contributions are very welcome. If you'd like to add a feature or fix something, feel free to open a Pull Request, thanks for helping out!
