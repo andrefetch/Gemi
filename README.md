@@ -17,8 +17,8 @@ It comes with a friendly terminal interface (TUI) so you can chat with it like a
 
 You'll need two things before you start:
 
-1. **Python 3.13 or newer** — download it from [python.org](https://www.python.org/downloads/) if you don't have it.
-2. **A free Gemini API key** — get one in a couple of clicks at [Google AI Studio](https://aistudio.google.com/app/apikey).
+1. **Python 3.13 or newer** —> download it from [python.org](https://www.python.org/downloads/) if you don't have it.
+2. **A free Gemini API key** —> get one in a couple of clicks at [Google AI Studio](https://aistudio.google.com/app/apikey).
 
 Then follow these steps:
 
