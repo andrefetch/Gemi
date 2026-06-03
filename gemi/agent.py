@@ -20,6 +20,7 @@ class Agent:
         self,
         model: str = "gemini-2.5-flash",
         max_iterations: int = 20,
+        working_directory: str = "./workspace",
     ) -> None:
         load_dotenv()
         api_key = os.environ.get("GEMINI_API_KEY")
@@ -29,6 +30,7 @@ class Agent:
         self.client = genai.Client(api_key=api_key)
         self.model = model
         self.max_iterations = max_iterations
+        self.working_directory = working_directory
         self.messages: list[types.Content] = []
         self.config = types.GenerateContentConfig(
             tools=[available_functions],
@@ -65,7 +67,7 @@ class Agent:
                 call_args = dict(func_call.args) if func_call.args else {}
                 yield AgentEvent("function_call", f"{func_call.name}({call_args})")
 
-                result = call_function(func_call, verbose)
+                result = call_function(func_call, self.working_directory, verbose)
                 part = result.parts[0] if result.parts else None
                 response_payload = (
                     part.function_response.response

@@ -199,7 +199,7 @@ wheels = [
 [[package]]
 name = "gemi"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "argparse" },
     { name = "google-genai" },

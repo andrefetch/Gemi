@@ -45,7 +45,7 @@ class GemiApp(App):
         if not prompt:
             return
         log = self.query_one("#chat", RichLog)
-        log.write(f"[bold cyan]you[/]  {escape(prompt)}")
+        log.write(f"[bold cyan]You[/]: {escape(prompt)}")
         event.input.value = ""
         event.input.disabled = True
         self.run_agent(prompt)
@@ -57,7 +57,7 @@ class GemiApp(App):
             for ev in self.agent.send(prompt, verbose=True):
                 if ev.kind == "function_call":
                     self.call_from_thread(
-                        log.write, f"[yellow]→ calling[/] {escape(ev.text)}"
+                        log.write, f"[yellow]→ calling[/] [dim]{escape(ev.text)}"
                     )
                 elif ev.kind == "function_result":
                     text = ev.text
@@ -66,7 +66,7 @@ class GemiApp(App):
                     self.call_from_thread(log.write, f"[dim]  {escape(text)}[/]")
                 elif ev.kind == "text":
                     self.call_from_thread(
-                        log.write, f"[bold green]gemi[/] {escape(ev.text)}"
+                        log.write, f"[bold green]Gemi[/]: {escape(ev.text)}"
                     )
                 elif ev.kind == "error":
                     self.call_from_thread(
@@ -83,5 +83,9 @@ class GemiApp(App):
         widget.focus()
 
 
-if __name__ == "__main__":
+def main() -> None:
     GemiApp().run()
+
+
+if __name__ == "__main__":
+    main()

@@ -7,9 +7,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Chatbot_Application")
     parser.add_argument("user_prompt", type=str, help="User prompt")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
+    parser.add_argument(
+        "--working-dir",
+        type=str,
+        default="./workspace",
+        help="Sandbox directory the agent is allowed to read/write within",
+    )
     args = parser.parse_args()
 
-    agent = Agent()
+    agent = Agent(working_directory=args.working_dir)
 
     for event in agent.send(args.user_prompt, verbose=args.verbose):
         if event.kind == "function_call":
