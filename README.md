@@ -1,6 +1,6 @@
-![Gemi](gemi/assets/visual.png)
-
 # Gemi
+
+![Gemi](gemi/assets/visual.png)
 
 Gemi is a free, open-source AI agent powered by Google's **Gemini 2.5 Flash**. It can browse your files, read them, write new ones, and even run Python scripts to help you with coding tasks. (More features are WIP)
 
