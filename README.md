@@ -22,7 +22,7 @@ You'll need two things before you start:
 
 Then follow these steps:
 
-### 1. Download Gemi
+### 1. Download Gemi Using:
 
 ```bash
 git clone https://github.com/andrefetch/Gemi.git
