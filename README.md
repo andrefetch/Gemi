@@ -6,7 +6,7 @@ Gemi is a free, open-source AI agent powered by Google's **Gemini 2.5 Flash**. I
 
 It comes with a friendly terminal interface (TUI) so you can chat with it like a normal app, and everything it does stays inside a safe sandbox folder so it can't touch the rest of your computer.
 
-## What Gemi can do
+## What Gemi can do!
 
 - **List files and folders** in your project
 - **Read file contents** to understand your code
